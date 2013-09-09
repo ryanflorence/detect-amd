@@ -27,5 +27,8 @@ detect.fromFile('angular.js');
 
 detect.fromFile('ember.js');
 // false
+
+var esprima = require('esprima');
+detect.fromAst(esprima.parse('define(function() {});'));
 ```
 

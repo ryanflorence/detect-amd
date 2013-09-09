@@ -1,10 +1,17 @@
 var fs = require('fs');
+var esprima = require('esprima');
 var detectDefine = require('./lib/detect-define');
 
-module.exports = detectDefine;
+module.exports = detect;
 
-detectDefine.fromFile = function(file) {
+function detect(code) {
+  return detectDefine(esprima.parse(code));
+}
+
+detect.fromAst = detectDefine;
+
+detect.fromFile = function(file) {
   var code = fs.readFileSync(file).toString();
-  return detectDefine(code);
+  return detect(code);
 };
 
