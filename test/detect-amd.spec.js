@@ -55,14 +55,6 @@ describe('detectAmd', function() {
     });
   });
 
-  it('finds define calls with no dependencies', function() {
-    detect.fromFile(__dirname+'/cases/no-deps.js').should.eql({
-      id: null,
-      deps: [],
-      hasRelativeDeps: false
-    });
-  });
-
   it('recognizes local define function declarations', function() {
     detect.fromFile(__dirname+'/cases/define-declaration.js').should.equal(false);
   });
