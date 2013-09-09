@@ -1,0 +1,4 @@
+function define() {}
+
+define(function() { });
+
